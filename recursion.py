@@ -95,3 +95,53 @@ def test_remove_x():
     print "Computed:", "\"" + remove_x("dxoxg") + "\"", "Expected: \"dog\""
 
 test_remove_x()
+
+def insert_x(my_string):
+    """
+    Takes a string and adds the character 'x'
+    between each pair of consecutive characters in the string.
+    """
+    if len(my_string) ==  0 or len(my_string) ==  1:
+        return my_string
+
+    else:
+        first_char = my_string[0]
+        the_rest = insert_x(my_string[1:])
+        return first_char + "x" + the_rest
+
+def test_insert_x():
+    """
+    Some test cases for insert_x
+    """
+    print
+    print "Computed:", "\"" + insert_x("") + "\"", "Expected: \"\""
+    print "Computed:", "\"" + insert_x("c") + "\"", "Expected: \"c\""
+    print "Computed:", "\"" + insert_x("pig") + "\"", "Expected: \"pxixg\""
+    print "Computed:", "\"" + insert_x("catdog") + "\"", "Expected: \"cxaxtxdxoxg\""
+
+test_insert_x()
+
+def list_reverse(my_list):
+    """
+    Takes a list and returns a new list
+    whose elements appear in reversed order.
+    """
+    if len(my_list) <= 1:
+        return my_list
+
+    else:
+        first = [my_list[0]]
+        the_rest = list_reverse(my_list[1:])
+        return the_rest + first
+
+def test_list_reverse():
+    """
+    Some test cases for list_reverse
+    """
+    print
+    print "Computed:", list_reverse([]), "Expected: []"
+    print "Computed:", list_reverse([1]), "Expected: [1]"
+    print "Computed:", list_reverse([1, 2, 3]), "Expected: [3, 2, 1]"
+    print "Computed:", list_reverse([2, 3, 1]), "Expected: [1, 3, 2]"
+
+test_list_reverse()
